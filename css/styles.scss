@@ -1,0 +1,152 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'PT Sans Narrow', sans-serif;
+  --themeColor1: #f16af6;
+  --themeColor2: #ae5bd4;
+  --themeColor3: #a370eb;
+  --themeColor4: #6c5bd4;
+  --themeColor5: #6a7bf6;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+body {
+  h1 {
+    font-size: 4em;
+  }
+  h2 {
+    grid-column: 1/-1;
+    font-size: 3em;
+    background-color: var(--themeColor4);
+    color: #fff;
+    box-shadow: 5px 5px 5px var(--shadow);
+    text-shadow: 5px 5px 5px var(--shadow);
+    margin: 10px;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--themeColor2);
+  nav {
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-evenly;
+      li {
+        padding: 10px;
+        a {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}
+
+.keyterms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  .keyterm {
+    display: grid;
+    align-items: center;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 5px 5px 5px var(--shadow);
+    background-color: var(--themeColor1);
+    transition: all 0.5s;
+    h3 {
+      font-size: 2em;
+      bottom: 50px;
+      position: absolute;
+      width: 100%;
+      transition: all 0.5s;
+    }
+    p {
+      padding: 10px 20px 20px 20px;
+      font-size: 1.2em;
+      position: absolute;
+      top: 100%;
+      transition: all 0.5s;
+    }
+    &:hover {
+      h3 {
+        bottom: 100%;
+      }
+      p {
+        top: 30px;
+      }
+    }
+  }
+}
+.questions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .question {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 5px 5px 5px var(--shadow);
+    background-color: var(--themeColor5);
+    transition: all 0.5s;
+    height: 150px;
+    color: #fff;
+    h4 {
+      font-size: 1.5em;
+    }
+    p {
+      padding: 10px 40px 40px 40px;
+      font-size: 1.2em;
+      position: absolute;
+      top: 100%;
+      transition: all 0.5s;
+    }
+    &:hover {
+      p {
+        top: 60px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .keyterms {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .questions {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .keyterms {
+    grid-template-columns: 1fr;
+  }
+  .questions {
+    .question {
+      height: 200px;
+      &:hover {
+        p {
+          top: 90px;
+        }
+      }
+    }
+  }
+}
